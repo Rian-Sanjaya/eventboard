@@ -1,0 +1,19 @@
+<h1><%= @event.title %></h1>
+
+<div>
+	<p><%= @event.description %></p>
+
+	<p><%= @event.start_date %></p>
+
+	<p><%= @event.end_date %></p>
+
+	<p><%= @event.venue %></p>
+
+	<p><%= @event.location %></p>
+</div>
+
+<div>
+	<%= link_to "Show All Event", events_path %> | 
+	<%= link_to "Edit Event", edit_event_path(@event) %> | 
+	<%= link_to "Delete Event", event_path(@event), method: :delete, data: { confirm: "Are you sure?"} %>
+</div>

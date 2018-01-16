@@ -8,7 +8,7 @@ module ApplicationHelper
 		end
 	end
 	
-	def time_format(dt_source)
-		dt_source.strftime('%A, %d %b %Y %l:%M %p')	
+	def time_format(event_date)
+		event_date.strftime('%A, %d %b %Y %l:%M %p')
 	end
 end

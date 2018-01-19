@@ -1,15 +1,22 @@
-<%= simple_form_for(event) do |f| %>
-	<%= f.input :title %>
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+		
+		<%= simple_form_for(event) do |f| %>
+			<%= f.input :title %>
+			
+			<%= f.input :description %>
+			
+			<%= f.input :start_date, as: :datetime, start_year: Date.today.year, ampm: true, order: [:day, :month, :year] %>
+			
+			<%= f.input :end_date, as: :datetime, start_year: Date.today.year, ampm: true, order: [:day, :month, :year] %>
+		
+			<%= f.input :venue %>
+			
+			<%= f.input :location %>
+			
+			<%= f.button :submit, class: "btn btn-primary" %>
+		<% end %>
 	
-	<%= f.input :description %>
-	
-	<%= f.input :start_date, as: :datetime, start_year: Date.today.year, ampm: true, order: [:day, :month, :year] %>
-	
-	<%= f.input :end_date, as: :datetime, start_year: Date.today.year, ampm: true, order: [:day, :month, :year] %>
-
-	<%= f.input :venue %>
-	
-	<%= f.input :location %>
-	
-	<%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
+		<p><%= link_to "Back", events_path %></p>
+	</div>
+</div>

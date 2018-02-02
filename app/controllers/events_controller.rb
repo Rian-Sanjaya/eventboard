@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 	before_action :authorize_owner!, only: [:edit, :update, :destroy]
 	
 	def index
-		@events = Event.all
+		@events = Event.order(created_at: :desc)
 	end
 
 	def show
@@ -63,7 +63,7 @@ class EventsController < ApplicationController
 			authenticate_user!
 			
 			unless @event.organizer == current_user
-				flash[:alert] = "You do not have permission to '#{action_name}' the '#{@event.title.upcase}'' event"
+				flash[:alert] = "You do not have permission to '#{action_name}' the '#{@event.title.upcase}' event"
 				redirect_to events_path
 			end
 		end
